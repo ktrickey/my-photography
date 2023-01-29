@@ -14,15 +14,15 @@ const
 
   outputOpts = {
     format: 'es',
-    sourcemap: 'dev',
+    sourcemap: dev,
     plugins: [
       terser({
         mangle: {
           toplevel: true
         },
         compress: {
-          drop_console: '!dev',
-          drop_debugger: '!dev'
+          drop_console: !dev,
+          drop_debugger: !dev
         },
         output: {
           quote_style: 1
