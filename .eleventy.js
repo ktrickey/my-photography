@@ -7,7 +7,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy('./src/js/isotope.pkgd.min.js');
   eleventyConfig.addPassthroughCopy('./src/js/jquery.lazyload.min.js');
   eleventyConfig.addPassthroughCopy('./src/js/wow.min.js');
-  eleventyConfig.addPassthroughCopy('./src/js/morphext.min.js');
+  eleventyConfig.addPassthroughCopy('./src/js/morphext.js');
   eleventyConfig.addPassthroughCopy('./src/js/typed.min.js');
   eleventyConfig.addPassthroughCopy('./src/js/contact-form.js');
   eleventyConfig.addPassthroughCopy('./src/js/jquery.ajaxchimp.min.js');
