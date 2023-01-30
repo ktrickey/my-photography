@@ -4,7 +4,7 @@ const
 
 module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy('./src/css');
-  //eleventyConfig.addPassthroughCopy('./src/js/isotopes.pkgd.min.js');
+  eleventyConfig.addPassthroughCopy('./src/js/isotopes.pkgd.min.js');
   eleventyConfig.addPassthroughCopy('./src/webfonts');
   eleventyConfig.addPassthroughCopy('./src/images');
   eleventyConfig.addWatchTarget('./src/js/');
