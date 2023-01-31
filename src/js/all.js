@@ -753,7 +753,6 @@ function initPageSliders(){
         // Fullwidth slider fadezoom
         $(".fullwidth-slider-fadezoom").owlCarousel({
             transitionStyle: "fadeUp",
-            autoPlay: 5000,
             slideSpeed: 350,
             singleItem: true,
             autoHeight: true,
