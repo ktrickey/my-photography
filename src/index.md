@@ -1,5 +1,4 @@
 ---
 title: 'Kevin Trickey Photography'
-layout: 'layouts/home.html'
+layout: 'layouts/home.njk'
 ---
-ggggg
