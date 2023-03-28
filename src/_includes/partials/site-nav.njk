@@ -1,3 +1,4 @@
+
 <!-- Navigation panel -->
 <nav class="main-nav dark transparent stick-fixed wow-menubar bg-dark-alfa-70">
     <div class="full-wrapper relative clearfix">
@@ -14,12 +15,27 @@
             <i class="fa fa-bars"></i>
             <span class="sr-only">Menu</span>
         </div>
-        {% set navPages = collections.all | eleventyNavigation("Gallery") %}
-        {{ navPages | dump | safe }}
-        {{ collections.all |  eleventyNavigation | eleventyNavigationToHtml  | safe  }}
+
         <!-- Main Menu -->
-<!--        <div class="inner-nav desktop-nav">-->
-<!--            <ul class="clearlist">-->
+        <div class="inner-nav desktop-nav">
+            {% set navPages = collections.all | eleventyNavigation |log %}
+
+{% macro renderNavListItem(entry) -%}
+<li class="{{ 'mn-sub-multi' if entry.parent  }}">
+  <a class="{{ 'active' if (entry.url === page.url) else '' }} {{  'mn-has-sub' if (entry.children.length>0) else ''}}" href="{{ entry.url }}">{{ entry.title }}</a>
+{%- if entry.children.length -%}
+  <ul class="mn-sub mn-has-multi">
+    <li class="mn-sub-multi">
+    <ul>
+    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+    </ul>
+    </li>
+  </ul>
+{%- endif -%}
+</li>
+{%- endmacro %}
+          <ul class="clearlist">
+{%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
 
 <!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
 <!--                <li>-->
@@ -65,8 +81,8 @@
 <!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
 
 
-<!--            </ul>-->
-<!--        </div>-->
+            </ul>
+        </div>
         <!-- End Main Menu -->
 
     </div>
