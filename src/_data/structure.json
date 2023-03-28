@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Nature",
+    "galleries": []
+  },
+  {
+    "name": "Travel",
+      "galleries": [
+        "UK - Skye",
+        "UK - Lake District",
+        "France"
+      ]
+  },
+  {
+    "name": "Sports",
+    "galleries": []
+  },
+  {
+    "name": "Other",
+    "galleries": []
+  }
+]

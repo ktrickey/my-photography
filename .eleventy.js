@@ -1,6 +1,8 @@
 const
   dev  = global.dev  = (process.env.ELEVENTY_ENV === 'development'),
   now = new Date();
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 
 module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy('./src/css');
@@ -16,6 +18,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy('./src/js/imagesloaded.pkgd.min.js');
   eleventyConfig.addPassthroughCopy('./src/webfonts');
   eleventyConfig.addPassthroughCopy('./src/images');
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addWatchTarget('./src/js/');
   return {
     markdownTemplateEngine: 'njk',
