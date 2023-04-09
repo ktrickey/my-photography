@@ -18,7 +18,7 @@
 
         <!-- Main Menu -->
         <div class="inner-nav desktop-nav">
-            {% set navPages = collections.all | eleventyNavigation |log %}
+            {% set navPages = collections.all | eleventyNavigation %}
 
 {% macro renderNavListItem(entry) -%}
 <li class="{{ 'mn-sub-multi' if entry.parent  }}">

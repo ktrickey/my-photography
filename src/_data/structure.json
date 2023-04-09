@@ -1,7 +1,9 @@
 [
   {
     "name": "Nature",
-    "galleries": []
+    "galleries": [
+      "Animals"
+    ]
   },
   {
     "name": "Travel",

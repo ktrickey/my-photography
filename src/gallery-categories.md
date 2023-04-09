@@ -4,10 +4,12 @@ pagination:
     size: 1
     alias: category
     addAllPagesToCollections: true
-permalink: "galleries/{{ pagination.items[0] | slug }}/"
+permalink: "galleries/{{ category.title | slug }}/"
+
 layout: 'layouts/gallery.njk'
 eleventyComputed:
+  category: {{ category}}
   eleventyNavigation:
-    key: "{{ pagination.items[0] | log }}"
+    key: "{{ category.title  }}"
     parent: Gallery
 ---
