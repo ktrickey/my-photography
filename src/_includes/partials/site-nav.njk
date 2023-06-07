@@ -1,4 +1,3 @@
-
 <!-- Navigation panel -->
 <nav class="main-nav dark transparent stick-fixed wow-menubar bg-dark-alfa-70">
     <div class="full-wrapper relative clearfix">
@@ -6,7 +5,7 @@
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
             <a href="/" class="logo">
-                <img src="/images/title.webp" alt="Company logo"  />
+                <img src="/images/title.webp" alt="Company logo"/>
             </a>
         </div>
 
@@ -20,65 +19,23 @@
         <div class="inner-nav desktop-nav">
             {% set navPages = collections.all | eleventyNavigation %}
 
-{% macro renderNavListItem(entry) -%}
-<li class="{{ 'mn-sub-multi' if entry.parent  }}">
-  <a class="{{ 'active' if (entry.url === page.url) else '' }} {{  'mn-has-sub' if (entry.children.length>0) else ''}}" href="{{ entry.url }}">{{ entry.title }}</a>
-{%- if entry.children.length -%}
-  <ul class="mn-sub mn-has-multi">
-    <li class="mn-sub-multi">
-    <ul>
-    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
-    </ul>
-    </li>
-  </ul>
-{%- endif -%}
-</li>
-{%- endmacro %}
-          <ul class="clearlist">
-{%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
-
-<!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
-<!--                <li>-->
-<!--                    <a href="/" class="mn-has-sub active">Home</a>-->
-
-<!--                </li>-->
-<!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
-
-<!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
-
-<!--                <li>-->
-<!--                    <a href="#" class="mn-has-sub">Galleries <i class="mn-has-sub-icon"></i></a>-->
-<!--                    <ul  class="mn-sub mn-has-multi">-->
-<!--                        <li class="mn-sub-multi">-->
-<!--                           -->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-
-<!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
-
-<!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
-<!--                <li>-->
-<!--                    <a href="#" class="mn-has-sub">About</a>-->
-
-<!--                </li>-->
-<!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
-
-<!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
-<!--                <li>-->
-<!--                    <a href="#" class="mn-has-sub">Search</a>-->
-
-<!--                </li>-->
-<!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
-
-<!--                &lt;!&ndash; Item With Sub &ndash;&gt;-->
-<!--                <li>-->
-<!--                    <a href="#" class="mn-has-sub">Contact</a>-->
-
-
-
-<!--                </li>-->
-<!--                &lt;!&ndash; End Item With Sub &ndash;&gt;-->
+            {% macro renderNavListItem(entry) -%}
+                <li class="{{ 'mn-sub-multi' if entry.parent }}">
+                    <a class="{{ 'active' if (entry.url === page.url) else '' }} {{ 'mn-has-sub' if (entry.children.length>0) else '' }}"
+                       href="{{ entry.url }}">{{ entry.title }}</a>
+                    {%- if entry.children.length -%}
+                        <ul class="mn-sub mn-has-multi">
+                            <li class="mn-sub-multi">
+                                <ul>
+                                    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+                                </ul>
+                            </li>
+                        </ul>
+                    {%- endif -%}
+                </li>
+            {%- endmacro %}
+            <ul class="clearlist">
+                {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
 
 
             </ul>
