@@ -1,36 +1,60 @@
 ﻿{% extends "layouts/base.njk" %} {% block content %}
-  <!-- Home Section -->
-  <section class="page-section bg-dark light-content" id="home">
-    <div class="container relative text-center">
+    <!-- Home Section -->
+    <section class="page-section bg-dark light-content" id="home">
+        <div class="container relative text-center">
 
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <h1 class="hs-line-4 mb-30 mb-xs-20 wow fadeInUpShort" data-wow-delay=".1s">
-            <span class="d-inline-block bg-gray-dark round px-3 pb-1">{{ category.title }}</span>
-          </h1>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <h1 class="hs-line-4 mb-30 mb-xs-20 wow fadeInUpShort" data-wow-delay=".1s">
+                        <span class="d-inline-block bg-gray-dark round px-3 pb-1">{{ photos.galleryName }}</span>
+                    </h1>
+                </div>
+            </div>
+
         </div>
-      </div>
+    </section>
+    <!-- End Home Section -->
+    <section class="page-section bg-dark light-content">
+        <div class="full-wrapper relative">
 
-    </div>
-  </section>
-  <!-- End Home Section -->
-<div class="container relative">
+            <!-- Works Filter -->
+            <div class="works-filter text-center">
+                <a href="#" class="filter active" role="button" aria-pressed="true" data-filter="*">All works</a>
+                <a href="#birds" class="filter" role="button" aria-pressed="false"
+                   data-filter=".birds">Birds</a>
+                <a href="#anglesey-abbey-dahlias" class="filter" role="button" aria-pressed="false" data-filter=".anglesey-abbey-dahlias">Dahlias</a>
+            </div>
+            <!-- End Works Filter -->
 
-  <!-- Photo Grid -->
-  <div class="row mb-30 mb-xs-10">
+            <!-- Works Grid -->
+            <ul class="works-grid work-grid-3 work-grid-gut clearfix hover-white" id="work-grid">
 
-  {%- for gal in category.galleries %}
-    <div class="col-md-4">
+                {%- for gal in photos.photos %}
 
-      <div class="post-prev-img mb-30 wow fadeScaleIn" data-wow-duration="1s">
-        <a href="images/portfolio/full-project-1.jpg" class="lightbox-gallery-2 mfp-image">
-          <img src="images/portfolio/projects-1.jpg" alt="" /></a>
-        {{ gal }}
-      </div>
+                    <!-- Work Item (Lightbox) -->
+                    <li class="work-item mix {{ gal.tag }}">
+                        <a href="/{{ gal.link }}" class="work-lightbox-link mfp-image">
+                            <div class="work-img">
+                                <div class="work-img-bg"></div>
+                                <img src="/{{ gal.link }}" data-original="images/portfolio/projects-1.jpg"
+                                     alt="Work Description" class="img-lazy-work"/>
+                            </div>
+                            <div class="work-intro">
+                                <h3 class="work-title">{{ gal.title }}</h3>
+                                <div class="work-descr">
+                                    {{ gal.description }}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
 
-    </div>
 
-    {% endfor %}
-  </div>
-</div>
+                {% endfor %}
+
+            </ul>
+            <!-- End Works Grid -->
+
+        </div>
+    </section>
+    <!-- End Portfolio Section -->
 {% endblock %}

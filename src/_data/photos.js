@@ -21,28 +21,41 @@ const getFileList = async (dirName) => {
     return files;
 };
 
-const structure = new Map();
+const galleries = [];
 
 
 module.exports =async function(){
 
-    if (structure.size > 0)
+    if (galleries.size > 0)
     {
-        return structure;
+        return galleries;
     }
     const allPhotos = await getFileList('src/images/galleries');
+    let count = 0;
     for (const x of allPhotos) {
 
+
         const photo = await exiftool.read(x);
-        const gallery = photo.Subject.find(p => p.startsWith('website|')).substring(8);
 
-        if (!structure.has(gallery)) {
-            structure.set(gallery, []);
+
+        const galleryInfo = photo.Subject.find(p => p.startsWith('website|')).substring(8).split('|');
+
+
+        let gallery = galleries.find(g=> g.galleryName === galleryInfo[0])
+        if (!gallery) {
+            console.log(`adding gallery ${galleryInfo[0]}`)
+            gallery = {galleryName: galleryInfo[0], photos: []};
+            galleries.push(gallery);
         }
-        structure.get(gallery).push({title: photo.Title, description: photo.Description, location: x});
 
+        const photoRec = {tag: galleryInfo[1].toLowerCase().replace(/ /g, '-'), title: photo.Title, description: photo.Description, link: x.replace('src/', '')};
+        gallery.photos.push(photoRec);
+
+        console.log(photoRec)
+        console.log(++count)
     }
-console.log(structure)
 
-    return structure;
+
+
+    return galleries;
 }
