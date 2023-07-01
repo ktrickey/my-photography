@@ -3,6 +3,7 @@ const
   now = new Date();
 
 module.exports = eleventyConfig => {
+  
   eleventyConfig.addPassthroughCopy('./src/css');
   eleventyConfig.addPassthroughCopy('./src/js/isotope.pkgd.min.js');
   eleventyConfig.addPassthroughCopy('./src/js/jquery.lazyload.min.js');
