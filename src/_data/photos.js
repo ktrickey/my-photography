@@ -40,10 +40,5 @@ module.exports = async function () {
 
     }
 
-    console.log('********************')
-    console.log(JSON.stringify(galleries));
-
-    await writeFile('src/_data/ddd.json', JSON.stringify(galleries));
-
     return galleries;
 }
