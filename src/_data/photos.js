@@ -29,11 +29,13 @@ module.exports = async function () {
             galleries.push(gallery);
         }
 
+        const link = photo.SourceFile.replace('src/', '/');
         const photoRec = {
             tag: galleryInfo[1].toLowerCase().replace(/ /g, '-'),
             title: photo.Title ?? '',
             description: photo.Description,
-            link: photo.SourceFile.replace('src/', '/')
+            link: link,
+            thumbLink: `${link}?nf_resize=fit&h=461`
         };
         gallery.photos.push(photoRec);
 
