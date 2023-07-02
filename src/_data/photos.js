@@ -33,7 +33,7 @@ module.exports = async function () {
             tag: galleryInfo[1].toLowerCase().replace(/ /g, '-'),
             title: photo.Title ?? '',
             description: photo.Description,
-            link: photo.SourceFile.replace('src/', '')
+            link: photo.SourceFile.replace('src/', '/')
         };
         gallery.photos.push(photoRec);
 
