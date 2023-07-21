@@ -24,7 +24,6 @@ module.exports = async function () {
 
         let gallery = galleries.find(g => g.galleryName === galleryInfo[0])
         if (!gallery) {
-            console.log(`adding gallery ${galleryInfo[0]}`)
             gallery = {galleryName: galleryInfo[0], photos: []};
             galleries.push(gallery);
         }
@@ -35,7 +34,8 @@ module.exports = async function () {
             title: photo.Title ?? '',
             description: photo.Description,
             link: link,
-            thumbLink: `${link}?nf_resize=fit&h=461`
+            thumbLink: `${link}?nf_resize=fit&h=461`,
+            isGalleryHeaderBackground: photo.Subject.some(x=>x.endsWith("|cover"))
         };
         gallery.photos.push(photoRec);
 

@@ -20,6 +20,11 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy('./src/images');
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addWatchTarget('./src/js/');
+
+  eleventyConfig.addNunjucksFilter("galleryHeaders", function(photos) {
+
+    return photos.filter(x=>x.isGalleryHeaderBackground).map(x=>x?.thumbLink);
+  });
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
