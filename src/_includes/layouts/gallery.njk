@@ -1,18 +1,26 @@
 ﻿{% extends "layouts/base.njk" %} {% block content %}
     <!-- Home Section -->
-    <section class="page-section bg-dark light-content" id="home">
-        <div class="container relative text-center">
+{% set galleryBackgroundImage=photos.photos | galleryHeaders | random %}
+    <section class="small-section bg-dark-alfa-50 bg-scroll light-content" data-background="" id="home" style="background-image: url({{ galleryBackgroundImage}});">
+        <div class="container relative">
 
             <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <h1 class="hs-line-4 mb-30 mb-xs-20 wow fadeInUpShort" data-wow-delay=".1s">
-                        <span class="d-inline-block bg-gray-dark round px-3 pb-1">{{ photos.galleryName }}</span>
-                    </h1>
+
+                <div class="col-md-8">
+                    <div class="wow fadeInUpShort animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUpShort;">
+                        <h1 class="hs-line-7 mb-20 mb-xs-10">{{ photos.galleryName }}</h1>
+                    </div>
+                    <div class="wow fadeInUpShort animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUpShort;">
+                        <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
+                            Gallery Info
+                        </p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
+
     <!-- End Home Section -->
     <section class="page-section bg-dark light-content">
         <div class="full-wrapper relative">
