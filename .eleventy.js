@@ -25,6 +25,14 @@ module.exports = eleventyConfig => {
 
     return photos.filter(x=>x.isGalleryHeaderBackground).map(x=>x?.thumbLink);
   });
+
+  eleventyConfig.addNunjucksFilter("galleryTags", function(photos) {
+
+
+    return Array.from(new Set(photos.map(p=> p.tag)));
+
+  });
+
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',

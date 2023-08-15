@@ -20,7 +20,7 @@
 
         </div>
     </section>
-
+    {% set tags=photos.photos | galleryTags %}
     <!-- End Home Section -->
     <section class="page-section bg-dark light-content">
         <div class="full-wrapper relative">
@@ -28,9 +28,11 @@
             <!-- Works Filter -->
             <div class="works-filter text-center">
                 <a href="#" class="filter active" role="button" aria-pressed="true" data-filter="*">All works</a>
-                <a href="#birds" class="filter" role="button" aria-pressed="false"
-                   data-filter=".birds">Birds</a>
-                <a href="#anglesey-abbey-dahlias" class="filter" role="button" aria-pressed="false" data-filter=".anglesey-abbey-dahlias">Dahlias</a>
+                {%- for tag in tags %}
+
+                  <a href="#{{ tag }}" class="filter" role="button" aria-pressed="false"
+                   data-filter=".{{ tag }}">{{ tag | replace("-", " ") }}</a>
+                {% endfor %}
             </div>
             <!-- End Works Filter -->
 
