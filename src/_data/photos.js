@@ -31,15 +31,15 @@ module.exports = async function () {
         const link = photo.SourceFile.replace('src/', '/');
         const photoRec = {
             tag: galleryInfo[1].toLowerCase().replace(/ /g, '-'),
+            tagTitle: galleryInfo[1],
             title: photo.Title ?? '',
             description: photo.Description,
             link: link,
             thumbLink: `${link}?nf_resize=fit&h=461`,
-            isGalleryHeaderBackground: photo.Subject.some(x=>x.endsWith("|cover"))
+            isGalleryHeaderBackground: photo.Subject.some(x=>x.endsWith("|cover")),
+
         };
         gallery.photos.push(photoRec);
-
-
     }
 
     return galleries;
