@@ -20,7 +20,7 @@
 
         </div>
     </section>
-    {% set tags=photos.photos | galleryTags %}
+    {% set tags=photos.photos|sort(true,true,'createdDate')|galleryTags %}
     <!-- End Home Section -->
     <section class="page-section bg-dark light-content">
         <div class="full-wrapper relative">
@@ -39,7 +39,7 @@
             <!-- Works Grid -->
             <ul class="works-grid work-grid-3 masonry work-grid-gut clearfix hover-white" id="work-grid">
 
-                {%- for gal in photos.photos %}
+                {%- for gal in photos.photos|sort(true,true,'createdDate') %}
 
                     <!-- Work Item (Lightbox) -->
                     <li class="work-item mix {{ gal.tag }}">

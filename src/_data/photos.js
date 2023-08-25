@@ -39,6 +39,7 @@ module.exports = async function () {
             thumbWidth: 461,
             thumbHeight: photo.ImageHeight * (461 / photo.ImageWidth),
             link: link,
+            createdDate: photo.CreateDate,
             thumbLink: `${link}?nf_resize=fit&h=461`,
             isGalleryHeaderBackground: photo.Subject.some(x=>x.endsWith("|cover")),
 
