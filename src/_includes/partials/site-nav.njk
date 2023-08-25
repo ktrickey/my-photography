@@ -27,7 +27,7 @@
                         <ul class="mn-sub mn-has-multi">
                             <li class="mn-sub-multi">
                                 <ul>
-                                    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+                                    {%- for child in entry.children|sort(false,true, 'title') %}{{ renderNavListItem(child) }}{% endfor -%}
                                 </ul>
                             </li>
                         </ul>
